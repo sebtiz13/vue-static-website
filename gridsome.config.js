@@ -9,4 +9,4 @@ module.exports = {
   description: 'This is my world ! Geekeries et délire, en vrai développeur JS/PHP. Fan de Vue.js',
   titleTemplate: 'Sebtiz13 > %s',
   plugins: [],
-}
+};
