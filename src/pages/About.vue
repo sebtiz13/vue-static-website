@@ -9,10 +9,17 @@
   </Layout>
 </template>
 
-<script>
-export default {
-  metaInfo: {
-    title: 'About us',
-  },
-};
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import { MetaInfo } from 'vue-meta';
+
+@Component
+export default class AboutPage extends Vue {
+  // eslint-disable-next-line class-methods-use-this
+  metaInfo(): MetaInfo {
+    return {
+      title: 'About us',
+    };
+  }
+}
 </script>

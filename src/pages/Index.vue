@@ -34,12 +34,19 @@
   </Layout>
 </template>
 
-<script>
-export default {
-  metaInfo: {
-    title: 'Hello, world!',
-  },
-};
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import { MetaInfo } from 'vue-meta';
+
+@Component
+export default class HomePage extends Vue {
+  // eslint-disable-next-line class-methods-use-this
+  metaInfo(): MetaInfo {
+    return {
+      title: 'Hello world !',
+    };
+  }
+}
 </script>
 
 <style>
