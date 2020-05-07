@@ -1,0 +1,34 @@
+.h1-size {
+  font-size: 3.8rem;
+}
+
+.h2-size {
+  font-size: 3.2rem;
+}
+
+.h3-size {
+  font-size: 2.8rem;
+}
+
+.main-title {
+  @extend .h1-size;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.secondary-title {
+  @extend .h2-size;
+  font-weight: 100;
+}
+
+a {
+  text-decoration: none;
+  color: $palette-cyan-600;
+  &:hover {
+    color: $palette-cyan-700;
+  }
+}
+
+.text-center {
+  text-align: center;
+}

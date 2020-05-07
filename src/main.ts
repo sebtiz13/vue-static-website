@@ -11,6 +11,11 @@ import './class-component-hooks';
 import { ClientApiConstructor } from './types';
 
 /**
+ * Global css imports
+ */
+import './assets/scss/base.scss';
+
+/**
  * Layout imports
  */
 import DefaultLayout from '~/layouts/Default.vue';
