@@ -1,6 +1,11 @@
 <template>
-  <Layout>
-    <h1>About us</h1>
+  <Layout :title="title">
+    <template slot="header">
+      <g-image
+        alt="Example image"
+        src="~/assets/headers/about-header.jpg"
+      />
+    </template>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
       Error doloremque omnis animi, eligendi magni a voluptatum, vitae,consequuntur rerum
@@ -15,10 +20,11 @@ import { MetaInfo } from 'vue-meta';
 
 @Component
 export default class AboutPage extends Vue {
-  // eslint-disable-next-line class-methods-use-this
+  private title = 'About us';
+
   metaInfo(): MetaInfo {
     return {
-      title: 'About us',
+      title: this.title,
     };
   }
 }
