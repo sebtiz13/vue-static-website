@@ -31,7 +31,6 @@ import { MetaInfo } from 'vue-meta';
 
 @Component
 export default class HomePage extends Vue {
-  // eslint-disable-next-line class-methods-use-this
   metaInfo(): MetaInfo {
     return {
       title: 'Hello world !',

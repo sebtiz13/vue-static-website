@@ -44,7 +44,6 @@ export default class SideNav extends Vue {
     },
   ]
 
-  // eslint-disable-next-line class-methods-use-this
   classLink(link: string, active: boolean, exact: boolean): string {
     if (link === '/' && exact) {
       return 'is-active';

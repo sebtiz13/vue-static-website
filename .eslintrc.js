@@ -54,6 +54,12 @@ module.exports = {
           'allowTypedFunctionExpressions': true,
         }],
       },
-    }
-  ]
+    },
+    {
+      files: '*.vue',
+      rules: {
+        'class-methods-use-this': 'off',
+      },
+    },
+  ],
 };
