@@ -41,13 +41,30 @@ export default class DefaultLayout extends Vue {
     flex-grow: 1;
     &_content {
       display: grid;
-      grid-template-columns: 1fr;
       grid-template-columns:
-        [full-start] minmax(1em, 1fr)
-        [main-start] minmax(480px, 1200px) [main-end]
-        minmax(1em, 1fr) [full-end];
+        [full-start] 30px
+        [main-start] auto [main-end]
+        30px [full-end];
       padding-top: 40px;
       padding-bottom: 40px;
+      @include sm {
+        grid-template-columns:
+          [full-start] 80px
+          [main-start] auto [main-end]
+          80px [full-end];
+      }
+      @include xl {
+        grid-template-columns:
+          [full-start] 1fr
+          [main-start] 920px [main-end]
+          1fr [full-end];
+      }
+      @include uw {
+        grid-template-columns:
+          [full-start] 260px
+          [main-start] auto [main-end]
+          260px [full-end];
+      }
       & > * {
         grid-column: main;
       }
