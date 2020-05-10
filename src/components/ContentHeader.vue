@@ -20,7 +20,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component
-export default class MyComponent extends Vue {
+export default class ContentHeader extends Vue {
   @Prop(String) readonly title!: string
 }
 </script>

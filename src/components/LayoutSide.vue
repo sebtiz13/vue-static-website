@@ -16,7 +16,7 @@ import SideNav from '~/components/SideNav.vue';
     SideNav,
   },
 })
-export default class MyComponent extends Vue {
+export default class LayoutSide extends Vue {
 
 }
 </script>

@@ -1,13 +1,13 @@
 <template>
   <div class="layout">
-    <side-menu />
+    <layout-side />
     <div class="layout-main">
-      <LayoutHeader :title="title">
+      <ContentHeader :title="title">
         <slot
           v-if="$slots.header"
           name="header"
         />
-      </LayoutHeader>
+      </ContentHeader>
       <section class="layout-main_content">
         <slot />
       </section>
@@ -17,13 +17,13 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import SideMenu from '~/components/SideMenu.vue';
-import LayoutHeader from '~/components/LayoutHeader.vue';
+import LayoutSide from '~/components/LayoutSide.vue';
+import ContentHeader from '~/components/ContentHeader.vue';
 
 @Component({
   components: {
-    SideMenu,
-    LayoutHeader,
+    LayoutSide,
+    ContentHeader,
   },
 })
 export default class DefaultLayout extends Vue {
@@ -34,7 +34,9 @@ export default class DefaultLayout extends Vue {
 <style lang="scss">
 .layout {
   display: flex;
-  flex-direction: row;
+  @include md {
+    flex-direction: row;
+  }
   &-main {
     flex-grow: 1;
     &_content {
