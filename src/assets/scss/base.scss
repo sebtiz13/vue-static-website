@@ -16,3 +16,8 @@ body {
 }
 
 @import 'typography';
+
+// Small patch for icon alignment
+[class^="sb-"]::before, [class*=" sb-"]::before {
+  vertical-align: middle;
+}
