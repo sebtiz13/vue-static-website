@@ -1,6 +1,23 @@
 <template>
   <div class="layout">
-    <layout-side />
+    <div class="layout-header">
+      <btn
+        id="btn-menu"
+        icon="bars"
+        text="Menu"
+        @click="toggleMenu"
+      />
+      <g-link
+        to="/"
+        class="layout-header_title h1-size"
+      >
+        Sebtiz13
+      </g-link>
+    </div>
+    <layout-side
+      :is-open="sideOpen"
+      @clickOut="toggleMenu"
+    />
     <div class="layout-main">
       <ContentHeader :title="title">
         <slot
@@ -28,14 +45,52 @@ import ContentHeader from '~/components/ContentHeader.vue';
 })
 export default class DefaultLayout extends Vue {
   @Prop({ type: String, required: true }) readonly title!: string
+
+  public sideOpen = false
+
+  toggleMenu(): void {
+    this.sideOpen = !this.sideOpen;
+  }
 }
 </script>
 
 <style lang="scss">
 .layout {
   display: flex;
-  @include md {
+  flex-direction: column;
+  padding-top: 50px;
+  @include lg {
     flex-direction: row;
+    padding-top: initial;
+  }
+  &-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: 50px;
+    color: $color-white;
+    background-color: $palette-blue-600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    [id="btn-menu"] {
+      position: absolute;
+      left: 0;
+      height: 50px;
+      width: 50px;
+      color: $color-white;
+      &:hover {
+        background: rgba(0, 0, 0, .4);
+      }
+    }
+    &_title {
+      color: $color-white;
+    }
+    @include lg {
+      display: none;
+    }
   }
   &-main {
     flex-grow: 1;

@@ -1,5 +1,9 @@
 <template>
-  <aside class="layout-side">
+  <aside
+    class="layout-side"
+    :class="classOpen"
+    @click="clickOut"
+  >
     <div class="layout-side_background" />
     <div class="layout-side_content">
       <sideNav />
@@ -8,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import SideNav from '~/components/SideNav.vue';
 
 @Component({
@@ -17,7 +21,17 @@ import SideNav from '~/components/SideNav.vue';
   },
 })
 export default class LayoutSide extends Vue {
+  @Prop(Boolean) isOpen!: boolean;
 
+  get classOpen(): string {
+    return this.isOpen ? 'is-open' : '';
+  }
+
+  clickOut({ target }: { target: HTMLElement }): void {
+    if (this.isOpen && target.classList.contains('layout-side')) {
+      this.$emit('clickOut');
+    }
+  }
 }
 </script>
 
