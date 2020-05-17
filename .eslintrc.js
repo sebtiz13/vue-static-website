@@ -8,25 +8,40 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-param-reassign': ['error', { props: false }],
     'no-new': 'error',
     'no-return-await': 'error',
     'no-self-compare': 'error',
-    'default-param-last': ["error"],
+    'default-param-last': ['error'],
     'no-case-declarations': 'off',
+    'import/extensions': ['error', 'always', {
+      js: 'never',
+      mjs: 'never',
+      jsx: 'never',
+      ts: 'never',
+      tsx: 'never',
+    }],
+    'no-param-reassign': ['error', {
+      props: true,
+      ignorePropertyModificationsFor: [
+        'state', // for vuex state
+        'acc', // for reduce accumulators
+        'e', // for e.returnvalue
+      ],
+    }],
   },
   settings: {
     'import/resolver': {
       alias: {
         map: [
-          ['^~', path.resolve(__dirname, './src')]
+          ['^@', path.resolve(__dirname, './src')],
         ],
-        extensions: ['.js', '.vue', '.ts']
+        extensions: ['.js', '.vue', '.ts', '.d.ts'],
       },
     },
   },
   plugins: [
-    'gridsome'
+    'gridsome',
+    '@typescript-eslint',
   ],
   overrides: [
     {
@@ -34,24 +49,20 @@ module.exports = {
       parser: 'vue-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
-        project: './tsconfig.json',
         extraFileExtensions: ['.vue'],
       },
       extends: [
+        'plugin:import/typescript',
         'plugin:vue/recommended',
         'plugin:gridsome/recommended',
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
       ],
       rules: {
-        'vue/html-indent': ['error', 2],
-        'vue/no-v-html': 'off',
-        'import/extensions': 'off',
-        '@typescript-eslint/indent': ['error', 2],
         '@typescript-eslint/explicit-function-return-type': ['error', {
-          'allowExpressions': true,
-          'allowHigherOrderFunctions': true,
-          'allowTypedFunctionExpressions': true,
+          allowExpressions: true,
+          allowHigherOrderFunctions: true,
+          allowTypedFunctionExpressions: true,
         }],
       },
     },
@@ -59,6 +70,7 @@ module.exports = {
       files: '*.vue',
       rules: {
         'class-methods-use-this': 'off',
+        'vue/no-v-html': 'off',
       },
     },
   ],

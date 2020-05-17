@@ -5,7 +5,7 @@
     />
     <g-image
       v-else
-      src="~/assets/headers/default-header.jpg"
+      src="@/assets/headers/default-header.jpg"
       :alt="title"
     />
     <div class="header_container">

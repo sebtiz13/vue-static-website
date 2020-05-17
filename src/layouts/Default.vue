@@ -34,8 +34,8 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import LayoutSide from '~/components/LayoutSide.vue';
-import ContentHeader from '~/components/ContentHeader.vue';
+import LayoutSide from '@/components/LayoutSide.vue';
+import ContentHeader from '@/components/ContentHeader.vue';
 
 @Component({
   components: {

@@ -3,4 +3,5 @@
     "page-query": "graphql",
     "static-query": "graphql"
   },
+  "typescript.tsdk": "node_modules/typescript/lib",
 }

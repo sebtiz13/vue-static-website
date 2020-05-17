@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import SideNav from '~/components/SideNav.vue';
+import SideNav from '@/components/SideNav.vue';
 
 @Component({
   components: {

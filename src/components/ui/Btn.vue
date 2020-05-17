@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import '~/assets/icons/styles.css';
+import '@/assets/icons/styles.css';
 
 @Component
 export default class Btn extends Vue {

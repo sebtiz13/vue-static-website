@@ -3,26 +3,29 @@
  * Learn more: gridsome.org/docs/client-api
  */
 
-import './class-component-hooks';
+/**
+  * Register hooks for class components
+  */
+import '@/class-component-hooks';
 
 /**
  * Types imports
  */
-import { ClientApiConstructor } from './types';
+import { ClientApiConstructor } from '@/types/ClientApiConstructor';
 
 /**
  * Global css imports
  */
-import './assets/scss/base.scss';
+import '@/assets/scss/base.scss';
 
 /**
  * Layout imports
  */
-import DefaultLayout from '~/layouts/Default.vue';
+import DefaultLayout from '@/layouts/Default.vue';
 /**
  * Ui components imports
  */
-import Btn from '~/components/ui/Btn.vue';
+import Btn from '@/components/ui/Btn.vue';
 
 /**
  * Client API constructor

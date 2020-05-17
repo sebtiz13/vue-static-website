@@ -4,6 +4,9 @@
     "module": "es6",
     "allowJs": true,
     "moduleResolution": "node",
+    "esModuleInterop": true,
+    "stripInternal": true,
+    "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -11,19 +14,19 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "src/*"
-      ],
       "@/*": [
         "src/*"
       ]
     },
   },
   "include": [
-    "src/**/*",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
   ],
   "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
+    "node_modules"
   ]
 }

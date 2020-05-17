@@ -3,7 +3,7 @@
     <template slot="header">
       <g-image
         alt="Example image"
-        src="~/assets/headers/about-header.jpg"
+        src="@/assets/headers/about-header.jpg"
       />
     </template>
     <p>
