@@ -25,7 +25,14 @@
           name="header"
         />
       </ContentHeader>
-      <section class="layout-main_content">
+      <slot
+        v-if="$slots.content"
+        name="content"
+      />
+      <section
+        v-else
+        class="layout-main_content"
+      >
         <slot />
       </section>
     </div>
@@ -110,9 +117,9 @@ export default class DefaultLayout extends Vue {
       }
       @include xl {
         grid-template-columns:
-          [full-start] 1fr
-          [main-start] 920px [main-end]
-          1fr [full-end];
+          [full-start] minmax(100px, 220px)
+          [main-start] minmax(780px, auto) [main-end]
+          minmax(100px, 220px) [full-end];
       }
       @include uw {
         grid-template-columns:
