@@ -69,6 +69,7 @@ export default class DefaultLayout extends Vue {
   @include lg {
     flex-direction: row;
     padding-top: initial;
+    padding-left: 220px;
   }
   &-header {
     position: fixed;

@@ -79,7 +79,6 @@ $layout-side-width: 220px;
     background-color: rgba(0, 0, 0, .75);
   }
   @include lg {
-    position: relative;
     top: 0;
     left: 0;
     width: $layout-side-width;
