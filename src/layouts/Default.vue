@@ -66,6 +66,10 @@ export default class DefaultLayout extends Vue {
   display: flex;
   flex-direction: column;
   padding-top: 50px;
+  // Prevent horizontal scroll due to long word or URL
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
   @include lg {
     flex-direction: row;
     padding-top: initial;
