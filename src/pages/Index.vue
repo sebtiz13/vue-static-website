@@ -1,27 +1,8 @@
 <template>
   <Layout title="Welcome to my world !">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo!
-      Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a
-        href="https://gridsome.org/docs/"
-        target="_blank"
-        rel="noopener"
-      >
-        Gridsome Docs
-      </a>
-      <a
-        href="https://github.com/gridsome/gridsome"
-        target="_blank"
-        rel="noopener"
-      >
-        GitHub
-      </a>
-    </p>
+    <h2 class="content-title main-title">
+      Latest articles
+    </h2>
     <article
       v-for="post in posts"
       :key="post.id"
@@ -29,8 +10,6 @@
       <g-link :to="post.path">
         {{ post.title }}
       </g-link>
-      <br>
-      <br>
     </article>
   </Layout>
 </template>
@@ -42,10 +21,6 @@
         node {
           id
           title
-          categories
-          excerpt
-          timeToRead
-          date(format: "MMM D YYYY")
           path
         }
       }
