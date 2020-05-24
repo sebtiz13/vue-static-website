@@ -1,4 +1,5 @@
 const path = require('path');
+const unwrapImage = require('./unwrapImage');
 
 function addStyleResource(rule) {
   rule.use('style-resource')
@@ -16,7 +17,24 @@ module.exports = {
   titleTemplate: 'Sebtiz13 > %s',
   plugins: [
     'gridsome-plugin-typescript',
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'blog-content/blog/**/*.md',
+        typeName: 'BlogPost',
+        remark: {
+          plugins: [
+            'remark-attr',
+            unwrapImage,
+            ['gridsome-plugin-remark-shiki', { theme: 'Material-Theme-Ocean', skipInline: false }],
+          ],
+        },
+      },
+    },
   ],
+  templates: {
+    BlogPost: '/:slug',
+  },
   chainWebpack(config) {
     // Load variables for all vue-files
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];

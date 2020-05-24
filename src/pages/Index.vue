@@ -22,15 +22,56 @@
         GitHub
       </a>
     </p>
+    <article
+      v-for="post in posts"
+      :key="post.id"
+    >
+      <g-link :to="post.path">
+        {{ post.title }}
+      </g-link>
+      <br>
+      <br>
+    </article>
   </Layout>
 </template>
+
+<page-query>
+  query {
+    allBlogPost {
+      edges {
+        node {
+          id
+          title
+          categories
+          excerpt
+          timeToRead
+          date(format: "MMM D YYYY")
+          path
+        }
+      }
+    }
+  }
+</page-query>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { MetaInfo } from 'vue-meta';
+import { BlogPost } from '@/types/BlogPost';
 
 @Component
 export default class HomePage extends Vue {
+  private $page!: {
+    allBlogPost: {
+      edges: Array<{
+        node: BlogPost;
+      }>;
+    };
+  };
+
+  get posts(): Array<BlogPost> {
+    return this.$page.allBlogPost.edges.map(({ node }) => (node));
+  }
+
   metaInfo(): MetaInfo {
     return {
       title: 'Hello world !',
