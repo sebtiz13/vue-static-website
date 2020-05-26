@@ -3,14 +3,7 @@
     <h2 class="content-title main-title">
       Latest articles
     </h2>
-    <article
-      v-for="post in posts"
-      :key="post.id"
-    >
-      <g-link :to="post.path">
-        {{ post.title }}
-      </g-link>
-    </article>
+    <articles-list :posts="posts" />
   </Layout>
 </template>
 
@@ -22,6 +15,10 @@
           id
           title
           path
+          thumbnail
+          categories
+          date
+          excerpt
         }
       }
     }
@@ -32,8 +29,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { MetaInfo } from 'vue-meta';
 import { BlogPost } from '@/types/BlogPost';
+import ArticlesList from '@/components/ArticlesList.vue';
 
-@Component
+@Component({
+  components: {
+    ArticlesList,
+  },
+})
 export default class HomePage extends Vue {
   private $page!: {
     allBlogPost: {
