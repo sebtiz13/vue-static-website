@@ -36,7 +36,7 @@ export default class Btn extends Vue {
     return classes;
   }
 
-  get styleButton(): object {
+  get styleButton(): Record<string, string> {
     return {
       'font-size': `${this.size}rem`,
     };

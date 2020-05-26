@@ -3,7 +3,10 @@ import { MetaInfo } from 'vue-meta';
 import VueRouter from 'vue-router';
 
 declare interface ClientContext {
-  appOptions: object;
+  appOptions: {
+    metaInfo: MetaInfo;
+    router: VueRouter;
+  }
   router: VueRouter;
   head: MetaInfo;
 }
