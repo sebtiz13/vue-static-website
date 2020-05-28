@@ -106,6 +106,7 @@ export default class DefaultLayout extends Vue {
   }
   &-main {
     flex-grow: 1;
+    max-width: 100%;
     &_content {
       display: grid;
       grid-template-columns:
