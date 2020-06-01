@@ -1,4 +1,5 @@
 const path = require('path');
+const fixAnchorAccent = require('./fixAnchorAccent');
 const unwrapImage = require('./unwrapImage');
 
 function addStyleResource(rule) {
@@ -26,8 +27,22 @@ module.exports = {
           plugins: [
             'remark-attr',
             unwrapImage,
+            fixAnchorAccent,
+            ['remark-autolink-headings', {
+              content: {
+                type: 'element',
+                tagName: 'span',
+                properties: {
+                  className: 'icon icon-link',
+                },
+              },
+              linkProperties: {
+                'aria-hidden': 'true',
+              },
+            }],
             ['gridsome-plugin-remark-shiki', { theme: 'Material-Theme-Ocean', skipInline: false }],
           ],
+          autolinkHeadings: false,
         },
       },
     },
