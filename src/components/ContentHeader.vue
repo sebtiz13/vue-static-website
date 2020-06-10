@@ -29,12 +29,12 @@ export default class ContentHeader extends Vue {
 .header {
   position: relative;
   overflow: hidden;
-  display: flex;
-  height: 200px;
+  height: 50vh;
+  max-height: 200px;
   & > img {
-    height: 200px;
     min-width: 100%;
     width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
   }
@@ -57,10 +57,7 @@ export default class ContentHeader extends Vue {
     font-weight: 100;
   }
   @include md {
-    height: 400px;
-    & > img {
-      height: 400px;
-    }
+    max-height: 400px;
     &_title {
       font-size: 4.5rem;
     }
