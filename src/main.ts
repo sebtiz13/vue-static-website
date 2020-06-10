@@ -26,11 +26,13 @@ import DefaultLayout from '@/layouts/Default.vue';
  * Ui components imports
  */
 import Btn from '@/components/ui/Btn.vue';
+import DateTime from '@/components/ui/DateTime.vue';
 
 /**
  * Client API constructor
  */
 const client: ClientApiConstructor = (Vue) => {
+  Vue.component('DateTime', DateTime);
   Vue.component('Btn', Btn);
   Vue.component('Layout', DefaultLayout);
 };

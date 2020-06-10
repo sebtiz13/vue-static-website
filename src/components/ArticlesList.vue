@@ -31,12 +31,9 @@
         </p>
       </div>
       <footer class="l-article_footer">
-        <time
+        <date-time
           :datetime="post.date"
-          pubdate
-        >
-          {{ post.date }}
-        </time>
+        />
         <g-link :to="post.path">
           Read more
           <i

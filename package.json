@@ -11,11 +11,12 @@
   "dependencies": {
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.0",
+    "date-fns": "^2.14.0",
     "gridsome": "^0.7.15",
     "gridsome-plugin-remark-shiki": "^0.3.1",
+    "lodash.debounce": "^4.0.8",
     "remark-attr": "^0.11.1",
     "unist-util-visit": "^2.0.2",
-    "lodash.debounce": "^4.0.8",
     "vue": "^2.6.11",
     "vue-meta": "^2.3.4",
     "vue-property-decorator": "^8.4.2",
