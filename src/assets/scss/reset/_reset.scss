@@ -126,4 +126,12 @@ hr {
   }
 }
 
+/*
+ * Remove gap to bottom for img
+ * https://dev.to/christiankaindl/the-strange-img-gap-in-html
+ */
+img {
+  vertical-align: middle;
+}
+
 @import "normalize";
