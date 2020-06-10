@@ -19,7 +19,14 @@
       @clickOut="toggleMenu"
     />
     <div class="layout-main">
-      <ContentHeader :title="title">
+      <slot
+        v-if="$slots.contentHeader"
+        name="contentHeader"
+      />
+      <ContentHeader
+        v-else
+        :title="title"
+      >
         <slot
           v-if="$slots.header"
           name="header"
