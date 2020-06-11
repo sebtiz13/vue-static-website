@@ -14,6 +14,17 @@
             :datetime="$page.blogPost.date"
           />
         </div>
+        <div class="social-links">
+          <social-link
+            service="facebook"
+            share
+          />
+          <social-link
+            service="twitter"
+            :text="$page.blogPost.title"
+            share
+          />
+        </div>
       </template>
     </ContentHeader>
     <template slot="content">

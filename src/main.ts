@@ -27,13 +27,15 @@ import DefaultLayout from '@/layouts/Default.vue';
  */
 import Btn from '@/components/ui/Btn.vue';
 import DateTime from '@/components/ui/DateTime.vue';
+import SocialLink from '@/components/ui/SocialLink.vue';
 
 /**
  * Client API constructor
  */
 const client: ClientApiConstructor = (Vue) => {
-  Vue.component('DateTime', DateTime);
   Vue.component('Btn', Btn);
+  Vue.component('DateTime', DateTime);
   Vue.component('Layout', DefaultLayout);
+  Vue.component('SocialLink', SocialLink);
 };
 export default client;
