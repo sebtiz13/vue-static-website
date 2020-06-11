@@ -1,13 +1,21 @@
 <template>
   <Layout :title="$page.blogPost.title">
-    <template
+    <ContentHeader
       v-if="$page.blogPost.thumbnail"
-      slot="header"
+      slot="contentHeader"
+      :title="$page.blogPost.title"
     >
       <g-image
         :src="$page.blogPost.thumbnail"
       />
-    </template>
+      <template slot="headerFooter">
+        <div class="meta-info">
+          <date-time
+            :datetime="$page.blogPost.date"
+          />
+        </div>
+      </template>
+    </ContentHeader>
     <template slot="content">
       <navChapter
         v-if="headings.length > 0"
@@ -42,10 +50,12 @@ import { Component, Vue } from 'vue-property-decorator';
 import { MetaInfo } from 'vue-meta';
 import { HeadingElement } from '@/types/HeadingElement';
 import { BlogPost } from '@/types/BlogPost';
+import ContentHeader from '@/components/ContentHeader.vue';
 import NavChapter from '@/components/NavChapter.vue';
 
 @Component({
   components: {
+    ContentHeader,
     NavChapter,
   },
 })

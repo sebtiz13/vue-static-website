@@ -13,6 +13,14 @@
         {{ title }}
       </h1>
     </div>
+    <div
+      v-if="$slots.headerFooter"
+      class="header_footer"
+    >
+      <div class="header_footer-container">
+        <slot name="headerFooter" />
+      </div>
+    </div>
   </header>
 </template>
 
@@ -56,10 +64,38 @@ export default class ContentHeader extends Vue {
   &_title {
     font-weight: 100;
   }
+
+  &_footer {
+    background-color: $palette-blue-grey-100;
+    line-height: 2.5rem;
+    padding: 5px 0;
+    width: 100%;
+
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
   @include md {
+    color: $color-white;
     max-height: 400px;
     &_title {
       font-size: 4.5rem;
+    }
+    &_footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($color-black, .6);
+      &-container {
+        flex-wrap: nowrap;
+      }
     }
   }
 }
