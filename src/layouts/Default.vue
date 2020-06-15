@@ -64,6 +64,18 @@ export default class DefaultLayout extends Vue {
 
   toggleMenu(): void {
     this.sideOpen = !this.sideOpen;
+    if (this.sideOpen) {
+      document.body.addEventListener('touchmove', this.preventScroll, { passive: false });
+    } else {
+      document.body.removeEventListener('touchmove', this.preventScroll);
+    }
+  }
+
+  /**
+   * Add preventScroll on touchmove to lock scroll on iphone
+   */
+  preventScroll(event: Event): void {
+    event.preventDefault();
   }
 }
 </script>
