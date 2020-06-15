@@ -50,6 +50,7 @@ export default class SocialLink extends Vue {
   }
 
   onclick(event: MouseEvent): boolean {
+    const mobile = (navigator.userAgent.match(/Android|iPhone|iPad|iPod/i) || []).pop();
     if (this.share) {
       event.preventDefault();
       let url = this.serviceUrl;
@@ -59,6 +60,17 @@ export default class SocialLink extends Vue {
 
       const options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=600';
       window.open(url, this.service, options);
+      return false;
+    }
+    if (typeof mobile !== 'undefined' && this.service === 'facebook') {
+      event.preventDefault();
+      if (mobile === 'Android') {
+        window.open('fb://page/154180774704159', 'facebook');
+      } else if (['iPhone', 'iPad', 'iPod'].includes(mobile)) {
+        window.open('fb://page/?id=154180774704159', 'facebook');
+      }
+      // Fallback
+      window.open(this.serviceUrl, 'facebook');
       return false;
     }
     return true;
