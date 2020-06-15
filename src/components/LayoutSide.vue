@@ -43,7 +43,6 @@ $layout-side-width: 220px;
   top: 50px;
   left: -$layout-side-width;
   bottom: 0;
-  height: 100vh;
   z-index: 10;
   flex-shrink: 0;
   overflow: hidden;
