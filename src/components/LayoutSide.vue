@@ -7,6 +7,19 @@
     <div class="layout-side_background" />
     <div class="layout-side_content">
       <sideNav />
+      <footer class="layout-side_footer">
+        <p class="layout-side_title">
+          Follow me
+        </p>
+        <div class="social-links">
+          <social-link
+            service="facebook"
+          />
+          <social-link
+            service="twitter"
+          />
+        </div>
+      </footer>
     </div>
   </aside>
 </template>
@@ -56,6 +69,7 @@ $layout-side-width: 220px;
     flex-wrap: nowrap;
     overflow-y: auto;
     padding: 10px 20px;
+    color: $color-white;
     background-color: $palette-blue-600;
   }
   &_nav {
@@ -65,7 +79,6 @@ $layout-side-width: 220px;
   &_title {
     font-size: 2.2rem;
     margin-bottom: 15px;
-    color: $color-white;
     text-align: center;
     border-bottom: 1px solid rgba($palette-blue-grey-100, 0.2);
   }
@@ -76,6 +89,9 @@ $layout-side-width: 220px;
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, .75);
+  }
+  .social-links {
+    justify-content: space-around;
   }
   @include lg {
     top: 0;
