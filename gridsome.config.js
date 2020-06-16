@@ -1,3 +1,6 @@
+// load dotenv
+require('dotenv').config();
+
 const path = require('path');
 const fixAnchorAccent = require('./fixAnchorAccent');
 const unwrapImage = require('./unwrapImage');
@@ -21,7 +24,7 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'blog-content/blog/**/*.md',
+        path: `${process.env.CONTENT_DIR}/blog/**/*.md`,
         typeName: 'BlogPost',
         remark: {
           plugins: [
