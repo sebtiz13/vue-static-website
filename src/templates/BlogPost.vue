@@ -10,6 +10,14 @@
       />
       <template slot="headerFooter">
         <div class="meta-info">
+          <template v-if="$page.blogPost.categories.length >= 1">
+            Posted in
+            <g-link
+              :to="$page.blogPost.categories[0].path"
+            >
+              {{ $page.blogPost.categories[0].title }}
+            </g-link>
+          </template>
           <date-time
             :datetime="$page.blogPost.date"
           />
@@ -45,7 +53,10 @@
     blogPost(id: $id) {
       title
       thumbnail
-      categories
+      categories(limit: 1) {
+        path
+        title
+      }
       date
       content
       headings(depth: h2) {

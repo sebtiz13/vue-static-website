@@ -16,7 +16,10 @@
           title
           path
           thumbnail
-          categories
+          categories(limit: 1) {
+            path
+            title
+          }
           date
           excerpt
         }

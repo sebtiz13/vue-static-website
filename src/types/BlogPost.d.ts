@@ -1,4 +1,5 @@
 import { RemarkHeading } from './RemarkHeading';
+import { BlogCategory } from './BlogCategory';
 import { Image } from './Image';
 
 export interface BlogPost {
@@ -8,7 +9,7 @@ export interface BlogPost {
   title: string;
   slug: string;
   date: string;
-  categories: Array<string>;
+  categories: Array<BlogCategory>;
   thumbnail: Image;
   headings: Array<RemarkHeading>;
   timeToRead: number;

@@ -13,12 +13,13 @@
         >
           <g-image :src="post.thumbnail" />
         </g-link>
-        <div
+        <g-link
           v-if="post.categories.length >= 1"
           class="l-article_category"
+          :to="post.categories[0].path"
         >
-          {{ post.categories[0] }}
-        </div>
+          {{ post.categories[0].title }}
+        </g-link>
       </header>
       <h2 class="l-article_title">
         <g-link :to="post.path">

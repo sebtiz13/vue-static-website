@@ -47,11 +47,17 @@ module.exports = {
           ],
           autolinkHeadings: false,
         },
+        refs: {
+          categories: {
+            typeName: 'BlogCategory',
+          },
+        },
       },
     },
   ],
   templates: {
     BlogPost: '/:slug',
+    BlogCategory: '/category/:title',
   },
   chainWebpack(config) {
     // Load variables for all vue-files
