@@ -4,6 +4,7 @@ import { Image } from './Image';
 
 export interface BlogPost {
   path: string;
+  publicPath: string;
   content: string;
   excerpt: string;
   title: string;

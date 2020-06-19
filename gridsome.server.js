@@ -19,6 +19,18 @@ module.exports = (api) => {
     }
   });
 
+  api.onCreateNode((options) => {
+    if (options.path) {
+      // Trim last /
+      const sitUrl = process.env.SITE_URL.replace(/\/+$/g, '');
+      return {
+        ...options,
+        publicPath: sitUrl + options.path,
+      };
+    }
+    return options;
+  });
+
   api.createPages((/* { createPage } */) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
   });

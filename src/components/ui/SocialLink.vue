@@ -19,6 +19,8 @@ enum Services {
 
 @Component
 export default class SocialLink extends Vue {
+  @Prop(String) url!: string;
+
   @Prop({ type: Boolean, default: false }) share!: boolean;
 
   @Prop({
@@ -36,11 +38,10 @@ export default class SocialLink extends Vue {
       : 'https://www.facebook.com/Sebtiz13';
 
     if (this.share) {
-      const locationUrl = window.location.href;
-      link = `https://www.facebook.com/sharer/sharer.php?u=${locationUrl}&display=page`;
+      link = `https://www.facebook.com/sharer/sharer.php?u=${this.url}&display=page`;
 
       if (this.service === 'twitter') {
-        link = `https://twitter.com/intent/tweet?via=sebtiz13&url=${locationUrl}`;
+        link = `https://twitter.com/intent/tweet?via=sebtiz13&url=${this.url}`;
         if (this.text.length > 0) {
           link += `&text=${this.text}`;
         }

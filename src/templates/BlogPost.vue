@@ -25,10 +25,12 @@
         <div class="social-links">
           <social-link
             service="facebook"
+            :url="$page.blogPost.publicPath"
             share
           />
           <social-link
             service="twitter"
+            :url="$page.blogPost.publicPath"
             :text="$page.blogPost.title"
             share
           />
@@ -51,6 +53,7 @@
 <page-query>
   query($id: ID!) {
     blogPost(id: $id) {
+      publicPath
       title
       thumbnail
       categories(limit: 1) {
