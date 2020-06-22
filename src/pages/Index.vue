@@ -31,7 +31,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { MetaInfo } from 'vue-meta';
-import { BlogPost } from '@/types/BlogPost';
+import { BlogPost, BlogPostConnection } from '@/types/Nodes';
 import ArticlesList from '@/components/ArticlesList.vue';
 
 @Component({
@@ -41,14 +41,10 @@ import ArticlesList from '@/components/ArticlesList.vue';
 })
 export default class HomePage extends Vue {
   private $page!: {
-    allBlogPost: {
-      edges: Array<{
-        node: BlogPost;
-      }>;
-    };
+    allBlogPost: BlogPostConnection;
   };
 
-  get posts(): Array<BlogPost> {
+  get posts(): BlogPost[] {
     return this.$page.allBlogPost.edges.map(({ node }) => (node));
   }
 

@@ -49,11 +49,11 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { BlogPost } from '@/types/BlogPost';
+import { BlogPost } from '@/types/Nodes';
 
 @Component
 export default class ArticlesList extends Vue {
-  @Prop(Array) posts!: Array<BlogPost>
+  @Prop(Array) posts!: BlogPost[]
 }
 </script>
 

@@ -21,11 +21,11 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import debounce from 'lodash.debounce';
-import { HeadingElement } from '@/types/HeadingElement';
+import { HeadingElement } from '@/types/RemarkHeading';
 
 @Component
 export default class NavChapter extends Vue {
-  @Prop({ type: Array, default: () => ([]) }) headings!: Array<HeadingElement>;
+  @Prop({ type: Array, default: () => ([]) }) headings!: HeadingElement[];
 
   public activeHeadings: Record<string, boolean> = {};
 

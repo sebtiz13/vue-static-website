@@ -33,7 +33,7 @@ interface MenuLink {
 }
 @Component
 export default class SideNav extends Vue {
-  public menuLinks: Array<MenuLink> = [
+  public menuLinks: MenuLink[] = [
     {
       link: '/',
       name: 'Home',

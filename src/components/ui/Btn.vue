@@ -24,7 +24,7 @@ export default class Btn extends Vue {
 
   private activeClass = '';
 
-  get classButton(): Array<string> {
+  get classButton(): string[] {
     const classes = [this.activeClass];
     if (this.ripple) {
       classes.push('ripple');
@@ -35,7 +35,7 @@ export default class Btn extends Vue {
     return classes;
   }
 
-  get classText(): Array<string> {
+  get classText(): string[] {
     const classes = [];
     if (this.icon) {
       classes.push('screen-reader-text');

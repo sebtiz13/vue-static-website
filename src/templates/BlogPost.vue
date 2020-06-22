@@ -73,8 +73,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { MetaInfo } from 'vue-meta';
-import { HeadingElement } from '@/types/HeadingElement';
-import { BlogPost } from '@/types/BlogPost';
+import { HeadingElement } from '@/types/RemarkHeading';
+import { BlogPost } from '@/types/Nodes';
 import ContentHeader from '@/components/ContentHeader.vue';
 import NavChapter from '@/components/NavChapter.vue';
 
@@ -89,7 +89,7 @@ export default class BlogPostPage extends Vue {
     blogPost: BlogPost;
   };
 
-  private headings: Array<HeadingElement> = []
+  private headings: HeadingElement[] = []
 
   mounted(): void {
     // Set headings with anchor not empty and HTMLElement

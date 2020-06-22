@@ -3,3 +3,7 @@ export interface RemarkHeading {
   value: string;
   anchor: string;
 }
+
+export interface HeadingElement extends RemarkHeading {
+  element: HTMLElement;
+}

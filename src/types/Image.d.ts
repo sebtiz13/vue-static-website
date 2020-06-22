@@ -9,6 +9,6 @@ export interface Image {
   size: ImageSize;
   sizes: string;
   src: string;
-  srcset: Array<string>;
+  srcset: string[];
   type: string;
 }

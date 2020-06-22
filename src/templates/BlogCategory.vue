@@ -34,8 +34,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { BlogCategory } from '@/types/BlogCategory';
-import { BlogPost } from '@/types/BlogPost';
+import { BlogCategory, NodeRelations, BlogPost } from '@/types/Nodes';
 import ArticlesList from '@/components/ArticlesList.vue';
 
 @Component({
@@ -45,12 +44,12 @@ import ArticlesList from '@/components/ArticlesList.vue';
 })
 export default class BlogCategoryPage extends Vue {
   private $page!: {
-    blogCategory: BlogCategory
+    blogCategory: BlogCategory & NodeRelations<BlogPost>
   };
 
-  get posts(): Array<BlogPost> | null {
+  get posts(): BlogPost[] | null {
     if (this.$page.blogCategory.belongsTo.edges.length >= 1) {
-      return this.$page.blogCategory.belongsTo.edges.map(({ node }) => (node));
+      return this.$page.blogCategory.belongsTo.edges.map(({ node }) => ((node)));
     }
     return null;
   }
