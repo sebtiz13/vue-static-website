@@ -32,6 +32,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { MetaInfo } from 'vue-meta';
 import { BlogPost, BlogPostConnection } from '@/types/Nodes';
+import getNodes from '@/helpers/getNodes';
 import ArticlesList from '@/components/ArticlesList.vue';
 
 @Component({
@@ -45,7 +46,7 @@ export default class HomePage extends Vue {
   };
 
   get posts(): BlogPost[] {
-    return this.$page.allBlogPost.edges.map(({ node }) => (node));
+    return getNodes(this.$page.allBlogPost);
   }
 
   metaInfo(): MetaInfo {

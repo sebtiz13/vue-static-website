@@ -56,3 +56,5 @@ export type BlogPostConnection = NodeConnection<BlogPost>
 export type BlogCategory = Refs
 
 export type BlogCategoryConnection = NodeConnection<BlogCategory>
+
+export type NodeCollections<N extends Node> = Array<N>
