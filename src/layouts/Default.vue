@@ -5,6 +5,7 @@
         id="btn-menu"
         icon="bars"
         text="Menu"
+        ripple
         @click="toggleMenu"
       />
       <g-link
@@ -112,9 +113,6 @@ export default class DefaultLayout extends Vue {
       height: 50px;
       width: 50px;
       color: $color-white;
-      &:hover {
-        background: rgba(0, 0, 0, .4);
-      }
     }
     &_title {
       color: $color-white;
