@@ -11,6 +11,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
+import enumValidator from '@/helpers/enumValidator';
 
 enum Services {
   FACEBOOK='facebook',
@@ -26,7 +27,7 @@ export default class SocialLink extends Vue {
   @Prop({
     type: String,
     default: 'facebook',
-    validator: (value) => Object.values(Services).includes(value),
+    validator: (value) => enumValidator(Services, value),
   })
   service!: Services;
 
