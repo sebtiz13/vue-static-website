@@ -27,6 +27,7 @@ import DefaultLayout from '@/layouts/Default.vue';
  */
 import Btn from '@/components/ui/Btn.vue';
 import DateTime from '@/components/ui/DateTime.vue';
+import NavMenu from '@/components/ui/NavMenu.vue';
 import SocialLink from '@/components/ui/SocialLink.vue';
 
 /**
@@ -35,7 +36,8 @@ import SocialLink from '@/components/ui/SocialLink.vue';
 const client: ClientApiConstructor = (Vue) => {
   Vue.component('Btn', Btn);
   Vue.component('DateTime', DateTime);
-  Vue.component('Layout', DefaultLayout);
+  Vue.component('NavMenu', NavMenu);
   Vue.component('SocialLink', SocialLink);
+  Vue.component('Layout', DefaultLayout);
 };
 export default client;

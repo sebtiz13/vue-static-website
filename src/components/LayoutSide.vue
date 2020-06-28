@@ -6,7 +6,10 @@
   >
     <div class="layout-side_background" />
     <div class="layout-side_content">
-      <sideNav />
+      <side-nav
+        class="layout-side_nav"
+        :menu-links="menuLinks"
+      />
       <footer class="layout-side_footer">
         <p class="layout-side_title">
           Follow me
@@ -28,6 +31,11 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import SideNav from '@/components/SideNav.vue';
 
+interface MenuLink {
+  title: string;
+  path: string;
+}
+
 @Component({
   components: {
     SideNav,
@@ -35,6 +43,17 @@ import SideNav from '@/components/SideNav.vue';
 })
 export default class LayoutSide extends Vue {
   @Prop(Boolean) isOpen!: boolean;
+
+  public menuLinks: MenuLink[] = [
+    {
+      title: 'Home',
+      path: '/',
+    },
+    {
+      title: 'About',
+      path: '/about/',
+    },
+  ]
 
   get classOpen(): string {
     return this.isOpen ? 'is-open' : '';
