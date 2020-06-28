@@ -1,9 +1,16 @@
 <template>
   <Layout :title="$page.blogCategory.title">
-    <articles-list
-      v-if="posts !== null"
-      :posts="posts"
-    />
+    <template slot="content">
+      <nav-menu
+        :menu-links="categories"
+      />
+      <div class="layout-main_content">
+        <articles-list
+          v-if="posts !== null"
+          :posts="posts"
+        />
+      </div>
+    </template>
   </Layout>
 </template>
 
@@ -29,23 +36,36 @@
         }
       }
     }
+    allBlogCategory(sortBy: "order", order: ASC) {
+      edges {
+        node {
+          title
+          path
+        }
+      }
+    }
   }
 </page-query>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { BlogCategory, NodeRelations, BlogPost } from '@/types/Nodes';
+import {
+  BlogCategory, NodeRelations, BlogPost, BlogCategoryConnection,
+} from '@/types/Nodes';
 import getNodes from '@/helpers/getNodes';
+import NavMenu from '@/components/ui/NavMenu.vue';
 import ArticlesList from '@/components/ArticlesList.vue';
 
 @Component({
   components: {
+    NavMenu,
     ArticlesList,
   },
 })
 export default class BlogCategoryPage extends Vue {
   private $page!: {
     blogCategory: BlogCategory & NodeRelations<BlogPost>
+    allBlogCategory: BlogCategoryConnection;
   };
 
   get posts(): BlogPost[] | null {
@@ -53,6 +73,10 @@ export default class BlogCategoryPage extends Vue {
       return getNodes(this.$page.blogCategory.belongsTo);
     }
     return null;
+  }
+
+  get categories(): BlogCategory[] {
+    return getNodes(this.$page.allBlogCategory);
   }
 }
 </script>

@@ -88,6 +88,7 @@ export default class NavMenu extends Vue {
   }
   &_link {
     display: flex;
+    outline: 0;
     height: 40px;
     align-items: center;
     justify-content: center;
