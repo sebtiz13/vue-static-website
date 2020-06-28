@@ -56,8 +56,8 @@ module.exports = {
     },
   ],
   templates: {
-    BlogPost: '/:slug',
-    BlogCategory: '/category/:title',
+    BlogPost: '/blog/:slug',
+    BlogCategory: '/blog/category/:title',
   },
   chainWebpack(config) {
     // Load variables for all vue-files
