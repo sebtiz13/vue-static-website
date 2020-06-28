@@ -1,5 +1,7 @@
 // content
 @import url("//fonts.googleapis.com/css?family=Montserrat:300,400,600");
+@import "reset/reset";
+
 html {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-weight: 400;
@@ -15,6 +17,7 @@ body {
   }
 }
 
+@import "placeholders";
 @import 'typography';
 
 // Small patch for icon alignment

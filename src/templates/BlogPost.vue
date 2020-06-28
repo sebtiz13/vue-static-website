@@ -118,7 +118,7 @@ export default class BlogPostPage extends Vue {
     border-bottom: 1px solid $palette-cyan-800;
     padding-top: 40px;
     margin-bottom: 20px;
-    @extend .h1-size;
+    @extend %h1-size;
     font-weight: 100;
     line-height: 1.5;
   }
