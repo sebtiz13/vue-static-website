@@ -50,6 +50,10 @@ export default class LayoutSide extends Vue {
       path: '/',
     },
     {
+      title: 'Blog',
+      path: '/blog',
+    },
+    {
       title: 'About',
       path: '/about/',
     },
