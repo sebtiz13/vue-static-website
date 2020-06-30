@@ -10,6 +10,11 @@
       />
     </ContentHeader>
     <template slot="content">
+      <AboutHeader
+        v-if="$page.sitePages.layout === 'about'"
+        class="layout-main_content"
+        :birth="$page.sitePages.date"
+      />
       <div
         v-if="$page.sitePages.content.length > 1"
         class="layout-main_content sitePages_content"
@@ -24,8 +29,10 @@
     sitePages(id: $id) {
       publicPath
       title
+      date
       content
       thumbnail
+      layout
     }
   }
 </page-query>
@@ -35,10 +42,12 @@ import { Component, Vue } from 'vue-property-decorator';
 import { MetaInfo } from 'vue-meta';
 import { sitePages } from '@/types/Nodes';
 import ContentHeader from '@/components/ContentHeader.vue';
+import AboutHeader from '@/components/AboutHeader.vue';
 
 @Component({
   components: {
     ContentHeader,
+    AboutHeader,
   },
 })
 export default class sitePagesPage extends Vue {
