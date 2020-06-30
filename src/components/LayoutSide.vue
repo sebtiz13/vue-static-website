@@ -8,7 +8,7 @@
     <div class="layout-side_content">
       <side-nav
         class="layout-side_nav"
-        :menu-links="menuLinks"
+        :menu-links="pageLink"
       />
       <footer class="layout-side_footer">
         <p class="layout-side_title">
@@ -27,9 +27,24 @@
   </aside>
 </template>
 
+<static-query>
+  query {
+    allSitePages(sort: { by: "order", order: ASC }) {
+      edges {
+        node {
+          title
+          path
+        }
+      }
+    }
+  }
+</static-query>
+
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import SideNav from '@/components/SideNav.vue';
+import { SitesPagesConnection } from '@/types/Nodes';
+import getNodes from '@/helpers/getNodes';
 
 interface MenuLink {
   title: string;
@@ -44,6 +59,10 @@ interface MenuLink {
 export default class LayoutSide extends Vue {
   @Prop(Boolean) isOpen!: boolean;
 
+  private $static!: {
+    allSitePages: SitesPagesConnection
+  };
+
   public menuLinks: MenuLink[] = [
     {
       title: 'Home',
@@ -53,14 +72,17 @@ export default class LayoutSide extends Vue {
       title: 'Blog',
       path: '/blog',
     },
-    {
-      title: 'About',
-      path: '/about/',
-    },
   ]
 
   get classOpen(): string {
     return this.isOpen ? 'is-open' : '';
+  }
+
+  get pageLink(): MenuLink[] {
+    return [
+      ...this.menuLinks,
+      ...getNodes(this.$static.allSitePages),
+    ];
   }
 
   clickOut({ target }: { target: HTMLElement }): void {

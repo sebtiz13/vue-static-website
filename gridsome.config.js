@@ -24,6 +24,20 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
+        path: `${process.env.CONTENT_DIR}/pages/**/*.md`,
+        typeName: 'SitePages',
+        remark: {
+          plugins: [
+            'remark-attr',
+            unwrapImage,
+          ],
+          slug: false,
+        },
+      },
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
         path: `${process.env.CONTENT_DIR}/blog/**/*.md`,
         typeName: 'BlogPost',
         remark: {
@@ -56,6 +70,7 @@ module.exports = {
     },
   ],
   templates: {
+    SitePages: '/:title',
     BlogPost: '/blog/:slug',
     BlogCategory: '/blog/category/:title',
   },

@@ -51,10 +51,19 @@ export interface BlogPost extends FileNode {
   date: string
 }
 
+export interface sitePages extends FileNode {
+  thumbnail: Image
+  date: string
+}
+
+export type MarkdownPageConnection = NodeConnection<sitePages>
+
 export type BlogPostConnection = NodeConnection<BlogPost>
 
 export type BlogCategory = Refs
 
 export type BlogCategoryConnection = NodeConnection<BlogCategory>
+
+export type SitesPagesConnection = NodeConnection<sitePages>
 
 export type NodeCollections<N extends Node> = Array<N>
