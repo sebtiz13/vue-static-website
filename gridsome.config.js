@@ -30,6 +30,7 @@ module.exports = {
           plugins: [
             'remark-attr',
             unwrapImage,
+            ['remark-containers', { default: true }],
           ],
           slug: false,
         },

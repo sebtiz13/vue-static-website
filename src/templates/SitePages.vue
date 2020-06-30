@@ -86,5 +86,31 @@ export default class sitePagesPage extends Vue {
     margin-bottom: 5px;
     text-align: center;
   }
+  .list-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    div {
+      flex-basis: 50%;
+      padding: 20px;
+      p {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      img {
+        height: 150px;
+        max-width: 100%;
+        object-fit: contain;
+      }
+      @include md {
+        flex-basis: calc(100% / 3);
+      }
+      @include lg {
+        flex-basis: calc(100% / 4);
+      }
+    }
+  }
 }
 </style>
