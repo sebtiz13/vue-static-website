@@ -2,7 +2,10 @@
   <time
     :datetime="isoDate"
   >
-    {{ formatedDate }}
+    <slot v-if="this.$slots.default" />
+    <template v-else>
+      {{ formatedDate }}
+    </template>
   </time>
 </template>
 
@@ -14,14 +17,19 @@ import parseJSON from 'date-fns/parseJSON';
 @Component
 export default class DateTime extends Vue {
   @Prop({
-    type: [String, Date],
-    validator: (date) => !Number.isNaN((date instanceof Date ? date : parseJSON(date)).getTime()),
+    type: [Number, String, Date],
+    validator: (date) => (typeof date === 'number'
+      ? date >= -864000000000000 && date <= 864000000000000
+      : !Number.isNaN((date instanceof Date ? date : parseJSON(date)).getTime())),
   })
   datetime!: string | Date;
 
   get normalizedDate(): Date {
     if (this.datetime instanceof Date) {
       return this.datetime;
+    }
+    if (typeof this.datetime === 'number') {
+      return new Date(this.datetime);
     }
     return parseJSON(this.datetime);
   }
