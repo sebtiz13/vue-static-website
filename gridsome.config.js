@@ -69,6 +69,26 @@ module.exports = {
         },
       },
     },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: `${process.env.CONTENT_DIR}/portfolio/**/*.md`,
+        typeName: 'Creations',
+        remark: {
+          slug: false,
+        },
+      },
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: `${process.env.CONTENT_DIR}/conferences/**/*.md`,
+        typeName: 'Conferences',
+        remark: {
+          slug: false,
+        },
+      },
+    },
   ],
   templates: {
     SitePages: '/:title',

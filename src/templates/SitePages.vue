@@ -20,6 +20,13 @@
         class="layout-main_content sitePages_content"
         v-html="$page.sitePages.content"
       />
+      <div
+        v-if="['portfolio', 'conferences'].includes(layout)"
+        class="layout-main_content"
+      >
+        <creations-list v-if="layout === 'portfolio'" />
+        <conferences-list v-if="layout === 'conferences'" />
+      </div>
     </template>
   </layout>
 </template>
@@ -43,11 +50,15 @@ import { MetaInfo } from 'vue-meta';
 import { sitePages } from '@/types/Nodes';
 import ContentHeader from '@/components/ContentHeader.vue';
 import AboutHeader from '@/components/AboutHeader.vue';
+import CreationsList from '@/components/CreationsList.vue';
+import ConferencesList from '@/components/ConferencesList.vue';
 
 @Component({
   components: {
     ContentHeader,
     AboutHeader,
+    CreationsList,
+    ConferencesList,
   },
 })
 export default class sitePagesPage extends Vue {
