@@ -4,7 +4,7 @@
       <nav-menu
         :menu-links="categories"
       />
-      <div class="layout-main_content">
+      <div class="layout-main_content layout_content">
         <articles-list
           v-if="posts !== null"
           :posts="posts"

@@ -39,7 +39,7 @@
       />
       <section
         v-else
-        class="layout-main_content"
+        class="layout-main_content layout_content"
       >
         <slot />
       </section>
@@ -114,48 +114,54 @@ export default class DefaultLayout extends Vue {
       width: 50px;
       color: $color-white;
     }
-    &_title {
+    &_title,
+    &_title:hover {
       color: $color-white;
+
     }
     @include lg {
       display: none;
+    }
+  }
+  &_content {
+    display: grid;
+    grid-template-columns:
+      [full-start] 30px
+      [main-start] auto [main-end]
+      30px [full-end];
+    padding-top: 5px;
+    padding-bottom: 5px;
+    @include sm {
+      grid-template-columns:
+        [full-start] 80px
+        [main-start] auto [main-end]
+        80px [full-end];
+    }
+    @include xl {
+      grid-template-columns:
+        [full-start] minmax(100px, 220px)
+        [main-start] minmax(780px, auto) [main-end]
+        minmax(100px, 220px) [full-end];
+    }
+    @include uw {
+      grid-template-columns:
+        [full-start] 260px
+        [main-start] auto [main-end]
+        260px [full-end];
+    }
+    & > * {
+      grid-column: main;
+    }
+    & > .alignfull {
+      grid-column: full;
     }
   }
   &-main {
     flex-grow: 1;
     max-width: 100%;
     &_content {
-      display: grid;
-      grid-template-columns:
-        [full-start] 30px
-        [main-start] auto [main-end]
-        30px [full-end];
       padding-top: 40px;
       padding-bottom: 40px;
-      @include sm {
-        grid-template-columns:
-          [full-start] 80px
-          [main-start] auto [main-end]
-          80px [full-end];
-      }
-      @include xl {
-        grid-template-columns:
-          [full-start] minmax(100px, 220px)
-          [main-start] minmax(780px, auto) [main-end]
-          minmax(100px, 220px) [full-end];
-      }
-      @include uw {
-        grid-template-columns:
-          [full-start] 260px
-          [main-start] auto [main-end]
-          260px [full-end];
-      }
-      & > * {
-        grid-column: main;
-      }
-      & > .alignfull {
-        grid-column: full;
-      }
     }
   }
 }

@@ -9,25 +9,28 @@
         :src="$page.sitePages.thumbnail"
       />
     </ContentHeader>
-    <template slot="content">
+    <div
+      slot="content"
+      class="layout-main_content"
+    >
       <AboutHeader
         v-if="$page.sitePages.layout === 'about'"
-        class="layout-main_content"
+        class="layout_content layout_content"
         :birth="$page.sitePages.date"
       />
       <div
         v-if="$page.sitePages.content.length > 1"
-        class="layout-main_content sitePages_content"
+        class="layout_content sitePages_content"
         v-html="$page.sitePages.content"
       />
       <div
         v-if="['portfolio', 'conferences'].includes(layout)"
-        class="layout-main_content"
+        class="layout_content"
       >
         <creations-list v-if="layout === 'portfolio'" />
         <conferences-list v-if="layout === 'conferences'" />
       </div>
-    </template>
+    </div>
   </layout>
 </template>
 

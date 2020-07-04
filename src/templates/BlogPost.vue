@@ -43,7 +43,7 @@
         :headings="headings"
       />
       <div
-        class="layout-main_content blogPost_content"
+        class="layout-main_content layout_content blogPost_content"
         v-html="$page.blogPost.content"
       />
     </template>
