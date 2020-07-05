@@ -18,6 +18,7 @@
     <layout-side
       :is-open="sideOpen"
       @clickOut="toggleMenu"
+      @navigate="toggleMenu"
     />
     <div class="layout-main">
       <slot

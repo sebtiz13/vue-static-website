@@ -16,7 +16,7 @@
           <a
             :href="href"
             class="navMenu_link"
-            @click="navigate"
+            @click="onClickLink($event, navigate)"
           >
             <span>{{ menuLink.title }}</span>
           </a>
@@ -48,6 +48,11 @@ export default class NavMenu extends Vue {
       classes.push('is-active');
     }
     return classes;
+  }
+
+  onClickLink($event: MouseEvent, navigate: (e: MouseEvent) => void): void {
+    this.$emit('navigate', $event);
+    navigate($event);
   }
 }
 </script>

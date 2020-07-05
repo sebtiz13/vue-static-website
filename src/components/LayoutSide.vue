@@ -9,6 +9,7 @@
       <side-nav
         class="layout-side_nav"
         :menu-links="pageLink"
+        @navigate="onNavigate"
       />
       <footer class="layout-side_footer">
         <p class="layout-side_title">
@@ -89,6 +90,10 @@ export default class LayoutSide extends Vue {
     if (this.isOpen && target.classList.contains('layout-side')) {
       this.$emit('clickOut');
     }
+  }
+
+  onNavigate($event: MouseEvent): void {
+    this.$emit('navigate', $event);
   }
 }
 </script>
