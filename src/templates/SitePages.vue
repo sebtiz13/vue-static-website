@@ -35,16 +35,16 @@
 </template>
 
 <page-query>
-  query($id: ID!) {
-    sitePages(id: $id) {
-      publicPath
-      title
-      date
-      content
-      thumbnail
-      layout
-    }
+query($id: ID!) {
+  sitePages(id: $id) {
+    publicPath
+    title
+    date
+    content
+    thumbnail
+    layout
   }
+}
 </page-query>
 
 <script lang="ts">

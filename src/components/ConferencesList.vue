@@ -3,17 +3,17 @@
 </template>
 
 <static-query>
-  query Conferences {
-    allConferences {
-      edges {
-        node {
-          title
-          thumbnail
-          content
-        }
+query Conferences {
+  allConferences {
+    edges {
+      node {
+        title
+        thumbnail
+        content
       }
     }
   }
+}
 </static-query>
 
 <script lang="ts">

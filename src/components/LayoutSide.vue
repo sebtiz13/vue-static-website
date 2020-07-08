@@ -29,16 +29,16 @@
 </template>
 
 <static-query>
-  query {
-    allSitePages(sort: { by: "order", order: ASC }) {
-      edges {
-        node {
-          title
-          path
-        }
+query {
+  allSitePages(sort: { by: "order", order: ASC }) {
+    edges {
+      node {
+        title
+        path
       }
     }
   }
+}
 </static-query>
 
 <script lang="ts">

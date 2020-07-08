@@ -15,36 +15,36 @@
 </template>
 
 <page-query>
-  query($id: ID!) {
-    blogCategory(id: $id) {
-      title
-      belongsTo {
-        edges {
-          node {
-            ... on BlogPost {
-              id
+query($id: ID!) {
+  blogCategory(id: $id) {
+    title
+    belongsTo {
+      edges {
+        node {
+          ... on BlogPost {
+            id
+            title
+            path
+            thumbnail
+            categories(limit: 1) {
               title
-              path
-              thumbnail
-              categories(limit: 1) {
-                title
-              }
-              date
-              excerpt
             }
+            date
+            excerpt
           }
         }
       }
     }
-    allBlogCategory(sortBy: "order", order: ASC) {
-      edges {
-        node {
-          title
-          path
-        }
+  }
+  allBlogCategory(sortBy: "order", order: ASC) {
+    edges {
+      node {
+        title
+        path
       }
     }
   }
+}
 </page-query>
 
 <script lang="ts">

@@ -8,24 +8,24 @@
 </template>
 
 <page-query>
-  query {
-    allBlogPost {
-      edges {
-        node {
-          id
-          title
+query {
+  allBlogPost {
+    edges {
+      node {
+        id
+        title
+        path
+        thumbnail
+        categories(limit: 1) {
           path
-          thumbnail
-          categories(limit: 1) {
-            path
-            title
-          }
-          date
-          excerpt
+          title
         }
+        date
+        excerpt
       }
     }
   }
+}
 </page-query>
 
 <script lang="ts">

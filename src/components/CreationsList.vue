@@ -3,17 +3,17 @@
 </template>
 
 <static-query>
-  query Creations {
-    allCreations {
-      edges {
-        node {
-          title
-          thumbnail
-          content
-        }
+query Creations {
+  allCreations {
+    edges {
+      node {
+        title
+        thumbnail
+        content
       }
     }
   }
+}
 </static-query>
 
 <script lang="ts">

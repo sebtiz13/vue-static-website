@@ -51,23 +51,23 @@
 </template>
 
 <page-query>
-  query($id: ID!) {
-    blogPost(id: $id) {
-      publicPath
+query($id: ID!) {
+  blogPost(id: $id) {
+    publicPath
+    title
+    thumbnail
+    categories(limit: 1) {
+      path
       title
-      thumbnail
-      categories(limit: 1) {
-        path
-        title
-      }
-      date
-      content
-      headings(depth: h2) {
-        anchor
-        value
-      }
+    }
+    date
+    content
+    headings(depth: h2) {
+      anchor
+      value
     }
   }
+}
 </page-query>
 
 <script lang="ts">

@@ -15,32 +15,32 @@
 </template>
 
 <page-query>
-  query Posts {
-    allBlogPost {
-      edges {
-        node {
-          id
-          title
+query Posts {
+  allBlogPost {
+    edges {
+      node {
+        id
+        title
+        path
+        thumbnail
+        categories(limit: 1) {
           path
-          thumbnail
-          categories(limit: 1) {
-            path
-            title
-          }
-          date
-          excerpt
-        }
-      }
-    }
-    allBlogCategory(sortBy: "order", order: ASC) {
-      edges {
-        node {
           title
-          path
         }
+        date
+        excerpt
       }
     }
   }
+  allBlogCategory(sortBy: "order", order: ASC) {
+    edges {
+      node {
+        title
+        path
+      }
+    }
+  }
+}
 </page-query>
 
 <script lang="ts">
