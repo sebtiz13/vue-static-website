@@ -1,0 +1,13 @@
+@each $prefix, $property in ('p', 'padding'), ('m', 'margin') {
+  /*# #{$property} #*/
+  @each $suffix, $direction in ('', ''), ('t', '-top'), ('b', '-bottom'), ('l', '-left'), ('r', '-right') {
+    @if($direction != '') {
+      /* #{str-slice($direction, 2)} */
+    }
+    @each $value in 0, 10, 20, 30 {
+      .#{$prefix}#{$suffix}-#{$value}.#{$prefix}#{$suffix}-#{$value} {
+        #{$property}#{$direction}: #{$value}px;
+      }
+    }
+  }
+}

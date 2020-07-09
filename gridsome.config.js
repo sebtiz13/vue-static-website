@@ -22,18 +22,17 @@ module.exports = {
   plugins: [
     'gridsome-plugin-typescript',
     {
-      use: '@gridsome/source-filesystem',
+      use: '@gridsome/vue-remark',
       options: {
-        path: `${process.env.CONTENT_DIR}/pages/**/*.md`,
-        typeName: 'SitePages',
-        remark: {
-          plugins: [
-            'remark-attr',
-            unwrapImage,
-            ['remark-containers', { default: true }],
-          ],
-          slug: false,
-        },
+        typeName: 'SitePages', // Required
+        baseDir: `${process.env.CONTENT_DIR}/pages`, // Where .md files are located
+        route: '/:slug',
+        template: './src/templates/SitePages.vue', // Optional
+        plugins: [
+          'remark-attr',
+          unwrapImage,
+          ['remark-containers', { default: true }],
+        ],
       },
     },
     {
@@ -91,11 +90,11 @@ module.exports = {
     },
   ],
   templates: {
-    SitePages: '/:title',
     BlogPost: '/blog/:slug',
     BlogCategory: '/blog/category/:title',
   },
   chainWebpack(config) {
+    config.resolve.set('symlinks', false);
     // Load variables for all vue-files
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];
     // use scss

@@ -17,8 +17,7 @@
 }
 
 .secondary-title {
-  @extend .h2-size;
-  font-weight: 100;
+  @extend %secondary-title;
 }
 
 .content-title {
@@ -40,4 +39,9 @@ a {
 
 ul, ol {
   margin-left: 15px;
+}
+
+p {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

@@ -115,12 +115,7 @@ export default class BlogPostPage extends Vue {
 <style lang="scss">
 .blogPost_content {
   h2 {
-    border-bottom: 1px solid $palette-cyan-800;
-    padding-top: 40px;
-    margin-bottom: 20px;
-    @extend %h1-size;
-    font-weight: 100;
-    line-height: 1.5;
+    @extend %secondary-title;
   }
   h3 {
     margin-top: 10px;
