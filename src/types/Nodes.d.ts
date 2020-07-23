@@ -35,6 +35,11 @@ export interface FileNode extends Node {
   timeToRead: number
 }
 
+export interface BlogNode extends FileNode {
+  thumbnail: Image
+  date: string
+}
+
 export interface Refs extends Node {
   path: string
   publicPath: string
@@ -45,28 +50,20 @@ export interface NodeRelations<N extends Node> {
   belongsTo: NodeBelongsTo<N>
 }
 
-export interface BlogPost extends FileNode {
+export interface BlogPost extends BlogNode {
   categories: BlogCategory[]
-  thumbnail: Image
-  date: string
 }
 
-export interface sitePages extends FileNode {
-  thumbnail: Image
-  date: string
-  layout: string
+export interface sitePages extends BlogNode {
+  order: number
 }
 
-export interface Creations extends FileNode {
-  thumbnail: Image
-  date: string
+export interface Creations extends BlogNode {
   role: string[]
   technology: string[]
 }
 
-export interface Conferences extends FileNode {
-  thumbnail: Image
-  date: string
+export interface Conferences extends BlogNode {
   youtube: string
   slides: string[]
 }
