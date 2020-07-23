@@ -37,11 +37,14 @@ export default class MainLayout extends Vue {
   public sideOpen = false
 
   toggleMenu(): void {
-    this.sideOpen = !this.sideOpen;
-    if (this.sideOpen) {
-      document.body.addEventListener('touchmove', this.preventScroll, { passive: false });
-    } else {
-      document.body.removeEventListener('touchmove', this.preventScroll);
+    // Don't toggle Menu in desktop
+    if (document.body.clientWidth < 992) {
+      this.sideOpen = !this.sideOpen;
+      if (this.sideOpen) {
+        document.body.addEventListener('touchmove', this.preventScroll, { passive: false });
+      } else {
+        document.body.removeEventListener('touchmove', this.preventScroll);
+      }
     }
   }
 
