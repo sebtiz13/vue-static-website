@@ -1,129 +1,47 @@
 <template>
-  <div class="layout">
-    <div class="layout-header">
-      <btn
-        id="btn-menu"
-        icon="bars"
-        text="Menu"
-        ripple
-        @click="toggleMenu"
-      />
-      <g-link
-        to="/"
-        class="layout-header_title h1-size"
-      >
-        Sebtiz13
-      </g-link>
-    </div>
-    <layout-side
-      :is-open="sideOpen"
-      @clickOut="toggleMenu"
-      @navigate="toggleMenu"
+  <div class="layout-main">
+    <slot
+      v-if="$slots.contentHeader"
+      name="contentHeader"
     />
-    <div class="layout-main">
+    <ContentHeader
+      v-else
+      :title="title"
+    >
       <slot
-        v-if="$slots.contentHeader"
-        name="contentHeader"
+        v-if="$slots.header"
+        name="header"
       />
-      <ContentHeader
-        v-else
-        :title="title"
-      >
-        <slot
-          v-if="$slots.header"
-          name="header"
-        />
-      </ContentHeader>
-      <slot
-        v-if="$slots.content"
-        name="content"
-      />
-      <section
-        v-else
-        class="layout-main_content layout_content"
-      >
-        <slot />
-      </section>
-    </div>
+    </ContentHeader>
+    <slot
+      v-if="$slots.content"
+      name="content"
+    />
+    <section
+      v-else
+      class="layout-main_content layout_content"
+    >
+      <slot />
+    </section>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import LayoutSide from '@/components/LayoutSide.vue';
 import ContentHeader from '@/components/ContentHeader.vue';
 
 @Component({
   components: {
-    LayoutSide,
     ContentHeader,
   },
 })
 export default class DefaultLayout extends Vue {
-  @Prop({ type: String, required: true }) readonly title!: string
-
-  public sideOpen = false
-
-  toggleMenu(): void {
-    this.sideOpen = !this.sideOpen;
-    if (this.sideOpen) {
-      document.body.addEventListener('touchmove', this.preventScroll, { passive: false });
-    } else {
-      document.body.removeEventListener('touchmove', this.preventScroll);
-    }
-  }
-
-  /**
-   * Add preventScroll on touchmove to lock scroll on iphone
-   */
-  preventScroll(event: Event): void {
-    event.preventDefault();
-  }
+  @Prop({ type: String, required: true }) private readonly title!: string
 }
 </script>
 
 <style lang="scss">
 .layout {
-  display: flex;
-  flex-direction: column;
-  padding-top: 50px;
-  // Prevent horizontal scroll due to long word or URL
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-  @include lg {
-    flex-direction: row;
-    padding-top: initial;
-    padding-left: 220px;
-  }
-  &-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    height: 50px;
-    color: $color-white;
-    background-color: $palette-blue-600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    [id="btn-menu"] {
-      position: absolute;
-      left: 0;
-      height: 50px;
-      width: 50px;
-      color: $color-white;
-    }
-    &_title,
-    &_title:hover {
-      color: $color-white;
-
-    }
-    @include lg {
-      display: none;
-    }
-  }
   &_content {
     display: grid;
     grid-template-columns:
