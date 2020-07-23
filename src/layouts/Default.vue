@@ -7,6 +7,7 @@
     <ContentHeader
       v-else
       :title="title"
+      :thumbnail="thumbnail"
     >
       <slot
         v-if="$slots.header"
@@ -28,6 +29,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Image } from '@/types/Image';
 import ContentHeader from '@/components/ContentHeader.vue';
 
 @Component({
@@ -37,6 +39,8 @@ import ContentHeader from '@/components/ContentHeader.vue';
 })
 export default class DefaultLayout extends Vue {
   @Prop({ type: String, required: true }) private readonly title!: string
+
+  @Prop({ type: Object }) private readonly thumbnail!: Image
 }
 </script>
 

@@ -4,10 +4,8 @@
       v-if="$page.blogPost.thumbnail"
       slot="contentHeader"
       :title="$page.blogPost.title"
+      :thumbnail="$page.blogPost.thumbnail"
     >
-      <g-image
-        :src="$page.blogPost.thumbnail"
-      />
       <template slot="headerFooter">
         <div class="meta-info">
           <template v-if="$page.blogPost.categories.length >= 1">

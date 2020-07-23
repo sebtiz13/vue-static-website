@@ -1,16 +1,8 @@
 <template>
   <Layout
     :title="$page.sitePages.title"
+    :thumbnail="$page.sitePages.thumbnail"
   >
-    <ContentHeader
-      v-if="$page.sitePages.thumbnail"
-      slot="contentHeader"
-      :title="$page.sitePages.title"
-    >
-      <g-image
-        :src="$page.sitePages.thumbnail"
-      />
-    </ContentHeader>
     <div
       slot="content"
       class="layout-main_content"

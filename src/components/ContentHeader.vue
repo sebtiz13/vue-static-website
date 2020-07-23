@@ -4,6 +4,11 @@
       v-if="$slots.default"
     />
     <g-image
+      v-else-if="thumbnail"
+      :src="thumbnail"
+      :alt="title"
+    />
+    <g-image
       v-else
       src="@/assets/headers/default-header.jpg"
       :alt="title"
@@ -26,10 +31,13 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Image } from '@/types/Image';
 
 @Component
 export default class ContentHeader extends Vue {
   @Prop(String) readonly title!: string
+
+  @Prop({ type: Object }) private readonly thumbnail!: Image
 }
 </script>
 
