@@ -80,8 +80,9 @@ export default class DefaultLayout extends Vue {
     }
   }
   &-main {
-    flex-grow: 1;
+    width: 100%;
     max-width: 100%;
+    background-color: #ffffff;
     &_content {
       padding-top: 40px;
       padding-bottom: 40px;

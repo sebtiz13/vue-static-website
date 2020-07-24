@@ -1,6 +1,8 @@
 <template>
   <MainLayout>
-    <router-view :key="$route.path" />
+    <transition name="fade">
+      <router-view :key="$route.path" />
+    </transition>
   </MainLayout>
 </template>
 
@@ -16,3 +18,20 @@ import MainLayout from '@/layouts/Main.vue';
 export default class App extends Vue {
 }
 </script>
+
+<style lang="scss">
+.fade {
+  &-leave-active {
+    position: absolute;
+    transition: opacity ease .65s;
+  }
+  &-enter-active {
+    position: absolute;
+    transition: opacity ease .7s;
+  }
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+</style>

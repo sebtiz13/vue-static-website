@@ -20,7 +20,9 @@
       @clickOut="toggleMenu"
       @navigate="toggleMenu"
     />
-    <slot />
+    <main class="layout-container">
+      <slot />
+    </main>
   </div>
 </template>
 
@@ -98,6 +100,10 @@ export default class MainLayout extends Vue {
     @include lg {
       display: none;
     }
+  }
+  &-container {
+    position: relative;
+    flex-grow: 1;
   }
 }
 </style>
