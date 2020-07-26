@@ -36,7 +36,7 @@
           :datetime="post.date"
         />
         <g-link :to="post.path">
-          Read more
+          {{ $t('read-article') }}
           <i
             class="sb-chevron-right"
             aria-hidden="true"

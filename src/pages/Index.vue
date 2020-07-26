@@ -1,7 +1,7 @@
 <template>
   <Layout title="Welcome to my world !">
     <h2 class="content-title main-title">
-      Latest articles
+      {{ $t('latest-articles') }}
     </h2>
     <articles-list :posts="posts" />
   </Layout>

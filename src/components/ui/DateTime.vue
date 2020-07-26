@@ -13,6 +13,13 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import format from 'date-fns/format';
 import parseJSON from 'date-fns/parseJSON';
+import { fr, enGB } from 'date-fns/locale';
+import { TranslateResult } from 'vue-i18n';
+
+const locales: Record<string, Locale> = {
+  fr,
+  en: enGB,
+};
 
 @Component
 export default class DateTime extends Vue {
@@ -38,8 +45,12 @@ export default class DateTime extends Vue {
     return this.normalizedDate.toJSON();
   }
 
-  get formatedDate(): string {
-    return `the ${format(this.normalizedDate, 'PPP')}`;
+  get formatedDate(): TranslateResult {
+    return this.$t('the', {
+      msg: format(this.normalizedDate, 'PPP', {
+        locale: locales[this.$i18n.locale],
+      }),
+    });
   }
 }
 </script>

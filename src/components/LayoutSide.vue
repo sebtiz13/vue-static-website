@@ -13,7 +13,7 @@
       />
       <footer class="layout-side_footer">
         <p class="layout-side_title">
-          Follow me
+          {{ $t('follow-me') }}
         </p>
         <div class="social-links">
           <social-link

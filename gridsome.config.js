@@ -22,6 +22,18 @@ module.exports = {
   plugins: [
     'gridsome-plugin-typescript',
     {
+      use: 'gridsome-plugin-i18n',
+      options: {
+        locales: [
+          'fr',
+          'en',
+        ],
+        fallbackLocale: 'en', // fallback language
+        defaultLocale: 'fr', // default language
+        rewriteDefaultLanguage: false,
+      },
+    },
+    {
       use: '@gridsome/vue-remark',
       options: {
         typeName: 'SitePages', // Required

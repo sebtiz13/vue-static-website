@@ -26,6 +26,12 @@ import {
 } from 'vue-property-decorator';
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict';
 import parseJSON from 'date-fns/parseJSON';
+import { fr, enGB } from 'date-fns/locale';
+
+const locales: Record<string, Locale> = {
+  fr,
+  en: enGB,
+};
 
 @Component
 export default class AboutHeader extends Vue {
@@ -46,7 +52,10 @@ export default class AboutHeader extends Vue {
   }
 
   get yearsOld(): string {
-    return formatDistanceToNowStrict(this.birthDate, { roundingMethod: 'floor' });
+    return formatDistanceToNowStrict(this.birthDate, {
+      roundingMethod: 'floor',
+      locale: locales[this.$i18n.locale],
+    });
   }
 
   @Watch('dateLeft')

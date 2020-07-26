@@ -9,7 +9,7 @@
       <template slot="headerFooter">
         <div class="meta-info">
           <template v-if="$page.blogPost.categories.length >= 1">
-            Posted in
+            {{ $t('posted-in') }}
             <g-link
               :to="$page.blogPost.categories[0].path"
             >

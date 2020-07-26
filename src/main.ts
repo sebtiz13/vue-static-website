@@ -31,9 +31,18 @@ import NavMenu from '@/components/ui/NavMenu.vue';
 import SocialLink from '@/components/ui/SocialLink.vue';
 
 /**
+ * Languages
+ */
+import en from './locales/en.json';
+import fr from './locales/fr.json';
+
+/**
  * Client API constructor
  */
-const client: ClientApiConstructor = (Vue) => {
+const client: ClientApiConstructor = (Vue, { appOptions }) => {
+  appOptions.i18n.setLocaleMessage('en', en);
+  appOptions.i18n.setLocaleMessage('fr', fr);
+
   Vue.component('Btn', Btn);
   Vue.component('DateTime', DateTime);
   Vue.component('NavMenu', NavMenu);

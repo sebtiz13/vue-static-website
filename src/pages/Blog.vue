@@ -6,7 +6,7 @@
       />
       <div class="layout-main_content layout_content">
         <h2 class="content-title main-title">
-          Latest articles
+          {{ $t('latest-articles') }}
         </h2>
         <articles-list :posts="posts" />
       </div>

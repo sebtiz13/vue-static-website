@@ -15,6 +15,7 @@
     "date-fns": "^2.14.0",
     "dotenv": "^8.2.0",
     "gridsome": "^0.7.19",
+    "gridsome-plugin-i18n": "^1.5.1",
     "gridsome-plugin-remark-shiki": "^0.3.1",
     "lodash.debounce": "^4.0.8",
     "remark-attr": "^0.11.1",
@@ -22,6 +23,7 @@
     "unist-util-visit": "^2.0.2",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
+    "vue-i18n": "^8.18.2",
     "vue-meta": "^2.4.0",
     "vue-property-decorator": "^9.0.0",
     "vue-router": "^3.3.4"
