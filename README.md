@@ -1,14 +1,52 @@
-# Default starter for Gridsome
+# Static website with Gridsome 🎉
 
-This is the project you get when you run `gridsome create new-project`.
+## 🚀 Quick start
 
-### 1. Install Gridsome CLI tool if you don't have
+```sh
+yarn install
 
-`npm install --global @gridsome/cli`
+yarn develop
+```
 
-### 2. Create a Gridsome project
+## Commands
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+### 🏗️ Build
+
+```sh
+yarn build
+```
+
+### 📏 Lint
+
+```sh
+yarn lint
+```
+
+### 🔨 Fix lint
+
+```sh
+yarn lint:fix
+```
+
+## Dependencies
+
+- 🎉 VueJS
+- 👮 Typescript
+- 🧘 Gridsome
+- 🧑‍🔧 Graphql
+
+## Tools
+
+- 📏 **[ESLint](https://eslint.org/)** — Pluggable JavaScript linter
+- 🐶 **[Husky](https://typicode.github.io/husky/)** — Use git hooks with ease
+- 🚓 **[Commitlint](https://commitlint.js.org/#/)** - Lint commit messages
+- 🚫 **[lint-staged](https://github.com/okonet/lint-staged)** - Run linters against staged git files
+
+---
+
+## Framework
+
+<a href="https://www.gridsome.org">
+<p>Gridsome</p>
+<img src="https://raw.githubusercontent.com/gridsome/gridsome/master/.github/assets/logo.png" width="90"/>
+</a>
