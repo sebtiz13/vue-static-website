@@ -29,7 +29,7 @@ module.exports = {
           'en',
         ],
         fallbackLocale: 'en', // fallback language
-        defaultLocale: 'fr', // default language
+        defaultLocale: process.env.DEFAULT_LOCALE || 'en', // default language
         rewriteDefaultLanguage: false,
       },
     },
